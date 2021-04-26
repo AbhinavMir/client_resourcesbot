@@ -1,0 +1,12 @@
+#combo-box-demo-label {
+    color: white !important;
+}
+
+.MuiInputBase-root {
+    border-color: white !important;
+    color: white !important;
+}
+
+.MuiSvgIcon-root {
+    color: white !important;
+}
