@@ -25,7 +25,6 @@ class App extends React.Component {
     return (
       <div className="MainDiv">
         <div className="container">
-          <input type="text"></input>
           <table id="example" className="display table">
             <thead className="thead-dark">
               <tr>
