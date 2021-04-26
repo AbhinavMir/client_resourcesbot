@@ -67,6 +67,15 @@
   animation: spin 2s linear infinite;
 }
 
+.visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
 /* Safari */
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
@@ -98,11 +107,11 @@
 
     <noscript>You need to enable JavaScript to run this app.</noscript>
     
-<div id="container">
+<!--div id="container">
     <input type="text" placeholder="Enter the location"></input>
     <input type="text" placeholder="Enter the service required"></input>
     <button style="background-color: transparent; color: white; border: solid 1px white;width:100px;height: 30px;">Search</button>
-  </div>
+  </div-->
 
     <div id="root"></div>
    
