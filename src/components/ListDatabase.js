@@ -49,7 +49,6 @@ class App extends React.Component {
                   </tr>
                 );
               })}
-              console.log(data.refer)
             </tbody>
           </table>
         </div>
