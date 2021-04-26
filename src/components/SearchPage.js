@@ -8,14 +8,14 @@ const SearchBar = () => (
         <input
             type="text"
             id="location"
-            placeholder="Search blog posts"
+            placeholder="Enter location"
             name="s" 
         />
 
 <input
             type="text"
-            id="header-search"
-            placeholder="Search blog posts"
+            id="facility"
+            placeholder="Enter facility required"
             name="s" 
         />
         <button type="submit">Search</button>
