@@ -40,18 +40,10 @@
         background-color: #212121;
         overflow: hidden;
       }
-
-      .button {
-  background-color: #593232; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
+#container
+{
+  padding:10%;
 }
-
 
 .loader {
   border: 16px solid #f3f3f3;
@@ -72,6 +64,23 @@
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+button{
+  background-color: transparent;
+  border: solid 4px white;
+  color: white;
+  border-radius: 5px;
+  margin-top: 3%;
+  width: 30%;
+  font-weight: bolder;
+  transition: ease-in 0.2s;
+}
+
+button:hover
+{
+  border: solid 10px white;
+
 }
       </style>
     <title>COVID resources</title>
@@ -94,6 +103,12 @@
 
     <noscript>You need to enable JavaScript to run this app.</noscript>
     
+<div id="container">
+    <input type="text" placeholder="Enter the location"></input>
+    <input type="text" placeholder="Enter the service required"></input>
+    <center><button>SEARCH</button></center>
+  </div>
+
     <div id="root"></div>
    
     <br><br>   <center><div class="loader"></div></center>

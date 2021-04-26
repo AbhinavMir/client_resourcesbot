@@ -1,64 +1,16 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 //Calling Firebase config setting to call the data
-import firebase from './Firebase';
+import firebase from "./Firebase";
+import ListDatabase from './components/ListDatabase.js'
 
-class App extends React.Component {
 
-constructor(props) {
-    super(props);
-    this.state = {tweetsList : []}
-    }
-    
-  componentDidMount() {     
-      firebase.database().ref("tweetdata").on("value", snapshot => {
-        let tweetList = [];
-        snapshot.forEach(snap => {
-            // snap.val() is the dictionary with all your keys/values from the 'tweetList' path
-            tweetList.push(snap.val());
-        });
-        this.setState({ tweetsList: tweetList });
-      });
- }
-  
-  render(){
+function App() {
   return (
-    <div className="MainDiv">
-      
-      <div className="container">
-          <input type = "text"></input>
-          <table id="example" className="display table">
-            <thead className="thead-dark">
-                <tr>
-                    <th>Facilities</th>
-                    <th>Location</th>
-                    <th>Time</th>
-                    <th>Link</th>
-                </tr>
-            </thead>
-            <tbody>
-            {this.state.tweetsList.map(data => {
-                console.log(data);
-                return (
-                    <tr>     
-                    <td>{data.keywords}</td>
-                    <td>{data.location}</td>
-                    <td>{data.time}</td>
-                    <td><a href={data.tweet_link}>Source</a></td>
-                    </tr>
-                    
-                );
-               
-                })}
-        
-               
-            </tbody>
-            
-         </table>
-          
-     </div>
+    <div className="App">
+      <ListDatabase />
     </div>
   );
 }
-}
+
 export default App;
