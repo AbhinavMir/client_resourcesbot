@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# COVID Bot frontend
 
 Frontend code for resourcesbot.surge.sh/ , which is the platform for the [Twitter bot](twitter.com/resourcesBot/). logic for which can be found [here](github.com/harshitm98/twitter-covid-bot).
 
