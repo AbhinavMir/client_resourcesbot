@@ -72,7 +72,7 @@ class App extends React.Component {
                     <td>{data.location}</td>
                     <td>{data.time}</td>
                     <td>
-                      <a href={data.tweet_link}>Source</a>
+                      <a href={data.tweet_link} target="_blank">Source</a>
                     </td>
                   </tr>
                 );
