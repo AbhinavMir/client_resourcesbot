@@ -20,6 +20,17 @@ const App = () => {
   const [res, setRes] = useState([]);
 
   useEffect(() => {
+    // initialize firebase analytics
+    const analytics = firebase.analytics();
+
+    /*
+      Though the analytics module would have default 
+      events, but to be more clear and to make sure 
+      we are defining the following event
+    */
+    analytics.logEvent('website_opened');
+
+    // url based results
     const ref = window.location.href.split("?")[1];
     if (ref === undefined) {
       return;
@@ -49,10 +60,6 @@ const App = () => {
         setRes(n);
       }
   };
-
-  useEffect(() => {
-    console.log(res);
-  }, [res]);
 
   return (
     <div className="App">

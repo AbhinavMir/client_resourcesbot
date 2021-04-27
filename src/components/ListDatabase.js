@@ -1,4 +1,5 @@
 import React from "react";
+import {formatDistance} from 'date-fns';
 import firebase from "../Firebase";
 
 class App extends React.Component {
@@ -70,7 +71,7 @@ class App extends React.Component {
                   <tr>
                     <td>{data.keywords}</td>
                     <td>{data.location}</td>
-                    <td>{data.time}</td>
+                    <td>{formatDistance(new Date(data.time), Date.now(), { addSuffix: true })}</td>
                     <td>
                       <a href={data.tweet_link} target="_blank">Source</a>
                     </td>
