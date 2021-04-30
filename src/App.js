@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from "react";
 import {FormControl, FormGroup, FormControlLabel, Checkbox, Typography} from '@material-ui/core';
+import * as Realm from 'realm-web';
 
 import "./App.css";
-//Calling Firebase config setting to call the data
+
+// Calling Firebase config setting to call the data
 import firebase from "./Firebase";
+// importing mongodb
+import mongo from "./MongoRealm";
 
 // importing components
 import ListDatabase from './components/ListDatabase.js'
@@ -18,6 +22,17 @@ resources.forEach((d) => initRes[d] = false);
 const App = () => {
   const [city, setCity] = useState('');
   const [res, setRes] = useState([]);
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    mongo.logIn(Realm.Credentials.anonymous())
+      .then((user) => {
+        setUser(user);
+      })
+      .catch((err) => {
+        console.log('MONGO A-USER ERROR:', err.message);
+      })
+  }, [])
 
   useEffect(() => {
     // initialize firebase analytics
@@ -60,6 +75,8 @@ const App = () => {
         setRes(n);
       }
   };
+
+  console.log(user);
 
   return (
     <div className="App">

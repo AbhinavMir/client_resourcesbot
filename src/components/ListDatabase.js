@@ -1,6 +1,7 @@
 import React from "react";
 import {formatDistance} from 'date-fns';
 import firebase from "../Firebase";
+import mongo from '../MongoRealm';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,18 +12,28 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    firebase
-      .database()
-      .ref("tweetdata")
-      .orderByChild('time') // not working because time format is not number but string
-      .on("value", (snapshot) => {
-        let tweetList = [];
-        snapshot.forEach((snap) => {
-          // snap.val() is the dictionary with all your keys/values from the 'tweetList' path
-          tweetList.push(snap.val());
-        });
+    const mongodb = mongo.currentUser.mongoClient("mongodb-atlas");
+    const tweetData = mongodb.db("tweet").collection("data");
+    tweetData
+      .find({}, {sort: {time: 1}})
+      .then((tweetList) => {
         this.setState({ tweetsList: tweetList.reverse() });
-      });
+      })
+      .catch((err) => {
+        console.log('MONGO DATABASE FETCH ERROR:', err.message);
+      })
+    // firebase
+    //   .database()
+    //   .ref("tweetdata")
+    //   .orderByChild('time') // not working because time format is not number but string
+    //   .on("value", (snapshot) => {
+    //     let tweetList = [];
+    //     snapshot.forEach((snap) => {
+    //       // snap.val() is the dictionary with all your keys/values from the 'tweetList' path
+    //       tweetList.push(snap.val());
+    //     });
+    //     this.setState({ tweetsList: tweetList.reverse() });
+    //   });
   }
 
   listFilter () {
