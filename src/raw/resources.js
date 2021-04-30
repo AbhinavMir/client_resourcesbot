@@ -1,6 +1,6 @@
 export default [
     'oxygen',
-    'remdesiver',
+    'remdesivir',
     'icu',
     'hospital bed',
     'plasma',
